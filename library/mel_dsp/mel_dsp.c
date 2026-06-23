@@ -39,14 +39,15 @@ int mel_dsp_init(void)
  * ==================================================================================================== */
 int mel_dsp_frame_process(const int16_t *input_pcm, float *output_mel)
 {
-    // Step 1: Apply Hanning window and zero-pad to FFT size
+    // Step 1: Zero-pad and apply Hanning window to FFT size
     // Python: padded_array = np.pad(pcm16, pad_width=(0, 112), mode='constant', constant_values=0)
     //         float_samples = padded_array.astype(np.float32)
     //         window = np.hanning(N_FFT)
     //         windowed_samples = float_samples * window
     memset(fft_data, 0, sizeof(fft_data));
-    for (int i = 0; i < MEL_DSP_FRAME_SIZE; i++) {
-        fft_data[2 * i] = (float)input_pcm[i] * mel_dsp_hanning_window[i];
+    for (int i = 0; i < MEL_DSP_FFT_SIZE; i++) {
+        float windowed_input = (i < MEL_DSP_FRAME_SIZE) ? (float)input_pcm[i] * mel_dsp_hanning_window[i] : 0.0f;
+        fft_data[2 * i] = windowed_input;
     }
 
     // Step 2: Perform FFT

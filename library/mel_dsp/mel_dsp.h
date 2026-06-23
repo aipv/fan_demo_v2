@@ -36,9 +36,9 @@ typedef struct {
 extern const mel_dsp_filter_t mel_dsp_filters[MEL_DSP_MEL_SIZE];
 
 /* ====================================================================================================
- * Hanning window
+ * Hanning window (512 samples for FFT size)
  * ==================================================================================================== */
-extern const float mel_dsp_hanning_window[MEL_DSP_FRAME_SIZE];
+extern const float mel_dsp_hanning_window[MEL_DSP_FFT_SIZE];
 
 /* ====================================================================================================
  * DSP init

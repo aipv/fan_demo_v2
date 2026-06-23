@@ -47,11 +47,17 @@ typedef int esp_err_t;
 
 /*
  * Standalone FFT implementation for Ubuntu/PC testing
+ * Uses ESP-DSP FFT via dsps_fft2r.h macro
  */
 
+/*
+ * NOTE: dsps_fft2r_fc32 and dsps_bit_rev_fc32 are defined as macros
+ * in dsps_fft2r.h which expands to the appropriate implementation.
+ * Include dsps_fft2r.h below to get the macro definitions.
+ */
+#include "dsps_fft2r.h"
+
 esp_err_t dsps_fft2r_init_fc32(float *fft_table_buff, int table_size);
-void dsps_fft2r_fc32(float *data, int N);
-void dsps_bit_rev_fc32(float *data, int N);
 
 #endif
 
