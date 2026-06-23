@@ -211,8 +211,8 @@ static void write_predictions(const char *output_path, float *probabilities, int
 
 int main(int argc, char *argv[])
 {
-    const char *raw_dir = "../dataset/raw";
-    const char *python_dir = "../dataset/predict";
+    const char *raw_dir = "../../../dataset/raw";
+    const char *python_dir = "../../../dataset/predict";
     const char *output_dir = "./output";
 
     if (argc > 1) raw_dir = argv[1];
