@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-    const char *input_file = "../dataset/sample/normal/normal_0000.pcm";
+    const char *input_file = "../../../dataset/sample/normal/normal_0000.pcm";
     const char *output_file = "mel_output.bin";
 
     if (argc > 1) {
