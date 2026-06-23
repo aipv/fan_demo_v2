@@ -1,0 +1,21 @@
+{
+    "sample":
+    {
+        "input" : "../dataset/raw",
+        "output" : "../dataset/sample"
+    },
+    "dsp32":
+    {
+        "input" : "../dataset/sample",
+        "output" : "../dataset/dsp32",
+        "groups" : ["normal", "abnormal", "d1", "d2", "d3", "d4"]
+    },
+    "train":
+    {
+        "model_py": "../dataset/model/model.py",
+        "model_h": "../dataset/model/model.h",
+        "model_c": "../dataset/model/model.c",
+        "pos_group" : ["normal"],
+        "neg_group" : ["abnormal", "d1", "d2"]
+    }
+}
