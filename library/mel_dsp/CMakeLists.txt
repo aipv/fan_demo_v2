@@ -71,3 +71,12 @@ target_include_directories(test_mel_dsp_dsp32 PRIVATE
     ${ESP_IDF_ROOT}/common/include_sim
 )
 target_link_libraries(test_mel_dsp_dsp32 mel_dsp -lm)
+
+add_executable(test_mel_dsp_all tests/test_mel_dsp_all.c)
+target_include_directories(test_mel_dsp_all PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}
+    ${ESP_IDF_ROOT}/fft/include
+    ${ESP_IDF_ROOT}/common/include
+    ${ESP_IDF_ROOT}/common/include_sim
+)
+target_link_libraries(test_mel_dsp_all mel_dsp -lm)
