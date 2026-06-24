@@ -132,7 +132,7 @@ void application_button_boot_callback(uint8_t gpio_num)
     float probability = 1.0f / (1.0f + expf(-score));
     ESP_LOGI(TAG, "Prediction: %.6f", probability);
 
-    network_socket_data_publish(pcm16_data, 32000);
+    network_socket_data_publish(pcm16_data, 32000 + 7840);
     ESP_LOGI(TAG, "Success Publish feature %d samples!", count);
 }
 
